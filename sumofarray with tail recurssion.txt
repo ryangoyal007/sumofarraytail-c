@@ -1,0 +1,16 @@
+#include <stdio.h>
+int sum_of_array_tail_recursion(int arr[], int length, int index, int accumulator);
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    int length = sizeof(arr) / sizeof(arr[0]);
+    int result = sum_of_array_tail_recursion(arr, length, 0, 0);
+    printf("Sum of array using tail recursion: %d\n", result);
+    
+    return 0;
+}
+int sum_of_array_tail_recursion(int arr[], int length, int index, int accumulator) {
+    if (index == length) {
+        return accumulator;
+    }
+    return sum_of_array_tail_recursion(arr, length, index + 1, accumulator + arr[index]);
+}
